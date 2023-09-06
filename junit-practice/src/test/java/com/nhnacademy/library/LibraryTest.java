@@ -1,9 +1,9 @@
 package com.nhnacademy.library;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
@@ -27,7 +27,7 @@ public class LibraryTest {
         // then
         IllegalArgumentException exception =
                 assertThrows(IllegalArgumentException.class, executable);
-        assertEquals(exception.getMessage(), NEGATIVE_LIBRARY_MESSAGE);
+        assertEquals(NEGATIVE_LIBRARY_MESSAGE, exception.getMessage());
     }
 
     @DisplayName("현재 도서의 개수를 반환")
