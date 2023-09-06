@@ -2,6 +2,8 @@ bin/
 .vscode/
 lib/
 target/
+out/
 
 *.class
 *.log
+*.jar
