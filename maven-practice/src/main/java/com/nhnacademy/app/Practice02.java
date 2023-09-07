@@ -12,10 +12,10 @@ public class Practice02 {
     }
 
     public static boolean isEmptyByString(String input) {
-        return input.isEmpty();
+        return input.isEmpty(); // null일 경우 예외
     }
 
     public static boolean isEmptyByStringUtils(String input) {
-        return StringUtils.isEmpty(input);
+        return StringUtils.isEmpty(input); // null일 경우 true
     }
 }
