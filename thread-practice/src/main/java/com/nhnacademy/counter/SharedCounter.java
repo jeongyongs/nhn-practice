@@ -31,6 +31,10 @@ public class SharedCounter implements Runnable {
         thread.start();
     }
 
+    public Thread getThread() {
+        return thread;
+    }
+
     public boolean isAlive() {
         return thread.isAlive();
     }
@@ -40,6 +44,11 @@ public class SharedCounter implements Runnable {
         while (!thread.isInterrupted() && count < maxCount) {
             sharedCount.increase();
             count++;
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException ignore) {
+                thread.interrupt();
+            }
         }
     }
 }

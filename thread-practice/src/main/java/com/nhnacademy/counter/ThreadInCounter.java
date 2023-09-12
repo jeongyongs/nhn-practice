@@ -43,6 +43,10 @@ public class ThreadInCounter implements Runnable {
         thread.interrupt();
     }
 
+    public Thread getThread() {
+        return thread;
+    }
+
     @Override
     public void run() {
         try {
@@ -54,8 +58,12 @@ public class ThreadInCounter implements Runnable {
 
     private void process() throws InterruptedException {
         while (count < maxCount) {
-            Thread.sleep(10000);
+            Thread.sleep(1000);
             System.out.printf("%s : %d%n", Thread.currentThread().getName(), ++count);
         }
+    }
+
+    public void setDaemon(boolean on) {
+        thread.setDaemon(on);
     }
 }
