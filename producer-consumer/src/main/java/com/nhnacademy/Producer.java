@@ -7,20 +7,20 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class Producer implements Runnable {
 
-    private static final int MAX_DELAY = 2_000;
+    private static final int MAX_DELAY = 10_000;
     private static final int MIN_DELAY = 1_000;
 
     private Thread thread;
-    private Resource resource;
+    private Store store;
 
     /**
      * 생산자를 생성합니다.
      * 
-     * @param resource 관리할 자원입니다.
+     * @param store 납품할 매장입니다.
      */
-    public Producer(Resource resource) {
+    public Producer(Store store) {
         thread = new Thread(this, "producer");
-        this.resource = resource;
+        this.store = store;
     }
 
     /**
@@ -40,14 +40,14 @@ public class Producer implements Runnable {
     @Override
     public void run() {
         while (!Thread.interrupted()) {
+            sleep(); // 재고를 채우는데 걸리는 시간
             proccess();
-            sleep();
         }
     }
 
     private void proccess() {
         try {
-            resource.add();
+            store.add();
         } catch (InterruptedException ignore) {
             Thread.currentThread().interrupt();
         }

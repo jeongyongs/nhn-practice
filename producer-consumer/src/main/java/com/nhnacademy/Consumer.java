@@ -8,16 +8,16 @@ public class Consumer implements Runnable {
     private static int count = 0;
 
     private int consumerId;
-    private Resource resource;
+    private Store store;
 
     /**
      * 소비자를 생성합니다.
      * 
-     * @param resource 관리할 자원입니다.
+     * @param store 방문할 매장입니다.
      */
-    public Consumer(Resource resource) {
+    public Consumer(Store store) {
         consumerId = ++count;
-        this.resource = resource;
+        this.store = store;
     }
 
     @Override
@@ -27,17 +27,17 @@ public class Consumer implements Runnable {
 
     private void proccess() {
         try {
-            resource.get(this);
+            store.enter(this);
         } catch (InterruptedException ignore) {
             Thread.currentThread().interrupt();
         }
     }
 
     /**
-     * 자원 접근 대기열에 추가하도록 요청합니다.
+     * 매장에 들어갈 수 있도록 요청을 보냅니다.
      */
     public void visit() {
-        resource.addWaiting(this);
+        store.addWaiting(this);
     }
 
     @Override
