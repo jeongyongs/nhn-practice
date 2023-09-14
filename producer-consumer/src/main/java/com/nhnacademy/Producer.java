@@ -7,8 +7,8 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class Producer implements Runnable {
 
+    private static final int MAX_DELAY = 2_000;
     private static final int MIN_DELAY = 1_000;
-    private static final int MAX_DELAY = 10_000;
 
     private Thread thread;
     private Resource resource;
