@@ -12,11 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class Store {
 
-    private static final String DEFAULT = "\u001B[0m";
-    private static final String RED = "\u001B[31m";
-    private static final String GREEN = "\u001B[32m";
-    private static final String YELLOW = "\u001B[33m";
-
     private ExecutorService waitingList;
     private Semaphore stock;
     private int stockSize;
@@ -44,11 +39,11 @@ public class Store {
      */
     public synchronized void add() throws InterruptedException {
         while (isFull()) {
-            log.info("{}재고가 가득 차서 대기합니다.{}", YELLOW, DEFAULT);
+            log.info("재고가 가득 차서 대기합니다.");
             wait();
         }
         stock.acquire();
-        log.info("{}재고가 들어왔습니다. (재고: {}){}", GREEN, getResourcesCount(), DEFAULT);
+        log.info("재고가 들어왔습니다. (재고: {})", getResourcesCount());
         notifyAll();
     }
 
@@ -74,10 +69,10 @@ public class Store {
         while (isEmpty()) {
             wait();
         }
-        log.info("{}{}님이 계산 중입니다.{}", YELLOW, consumer, DEFAULT);
+        log.info("{}님이 계산 중입니다.", consumer);
         Thread.sleep(ThreadLocalRandom.current().nextLong(1_000, 10_000)); // 물건을 사는데 걸리는 시간
         stock.release();
-        log.info("{}{}님이 상품을 구매했습니다. (재고: {}){}", RED, consumer, getResourcesCount(), DEFAULT);
+        log.info("{}님이 상품을 구매했습니다. (재고: {})", consumer, getResourcesCount());
         notifyAll();
     }
 
@@ -97,5 +92,20 @@ public class Store {
     public void addWaiting(Consumer consumer) {
         waitingList.submit(consumer);
         log.info("{}님이 대기열에 등록되었습니다. (대기인원: {})", consumer, ++waitingCount);
+    }
+
+    /**
+     * 현재 매장 정보를 가져옵니다.
+     * 
+     * @return 매장 정보를 반환합니다.
+     */
+    public String getInfo() {
+        String result = "";
+
+        result += String.format("│ %-7s : %3d │%n", "대기열 인원", waitingCount);
+        result += String.format("│ %-7s : %3d │%n", "매장안 인원", inCount);
+        result += String.format("│ %-10s : %3d │%n", "재 고", getResourcesCount());
+
+        return result;
     }
 }
