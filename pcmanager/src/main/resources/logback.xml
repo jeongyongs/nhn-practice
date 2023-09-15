@@ -1,0 +1,23 @@
+<configuration>
+
+    <timestamp key="date" datePattern="yyyy-MM-dd" />
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>./logs/log-${date}.log</file>
+        <encoder>
+            <pattern>%date [%thread] %level %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date [%thread] %level %logger - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>
