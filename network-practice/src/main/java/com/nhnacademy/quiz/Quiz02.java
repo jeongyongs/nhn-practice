@@ -10,11 +10,13 @@ public class Quiz02 {
         }
     }
 
+    @SuppressWarnings("all")
     private static void checkPortIsOpen(int i) {
         try (Socket socket = new Socket("localhost", i)) {
             System.out.println(i + "번 포트가 열려 있습니다.");
+            System.out.println("My: " + socket.getLocalSocketAddress());
+            System.out.println("Other: " + socket.getRemoteSocketAddress());
         } catch (Exception ignore) {
-            //
         }
     }
 }
