@@ -30,8 +30,8 @@ public class Exam05 {
 
             try (BufferedReader reader =
                     new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                    BufferedWriter writer =
-                            new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()))) {
+                BufferedWriter writer =
+                    new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()))) {
 
                 process(reader, writer);
 
@@ -69,5 +69,7 @@ public class Exam05 {
         while (!Thread.interrupted()) {
             executorService.submit(Connection.from(serverSocket.accept()));
         }
+
+        serverSocket.close();
     }
 }
