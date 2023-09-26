@@ -1,4 +1,4 @@
-package com.nhnacademy.quiz;
+package com.nhnacademy.socket.quiz;
 
 import java.io.IOException;
 import java.net.Socket;

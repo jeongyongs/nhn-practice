@@ -1,4 +1,4 @@
-package com.nhnacademy.exam;
+package com.nhnacademy.socket.exam;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -30,8 +30,8 @@ public class Exam05 {
 
             try (BufferedReader reader =
                     new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                BufferedWriter writer =
-                    new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()))) {
+                    BufferedWriter writer =
+                            new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()))) {
 
                 process(reader, writer);
 

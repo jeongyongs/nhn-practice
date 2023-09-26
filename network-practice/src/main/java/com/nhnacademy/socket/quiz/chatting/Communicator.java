@@ -1,4 +1,4 @@
-package com.nhnacademy.quiz.chatting;
+package com.nhnacademy.socket.quiz.chatting;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

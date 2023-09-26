@@ -1,4 +1,4 @@
-package com.nhnacademy.exam;
+package com.nhnacademy.socket.exam;
 
 import java.io.InputStream;
 import java.io.OutputStream;

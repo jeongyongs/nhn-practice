@@ -1,6 +1,6 @@
-package com.nhnacademy.quiz;
+package com.nhnacademy.socket.quiz;
 
-import com.nhnacademy.quiz.chatting.ChattingServer;
+import com.nhnacademy.socket.quiz.chatting.ChattingServer;
 
 public class Quiz13 {
 
