@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         try (IMqttClient client =
-                new MqttClient("tcp://localhost:1883", UUID.randomUUID().toString())) {
+                new MqttClient("tcp://ems.nhnacademy.com:1883", UUID.randomUUID().toString())) {
 
             process(client);
 
@@ -30,7 +30,8 @@ public class Main {
         client.connect(options);
 
         client.publish("test/topic", new MqttMessage("Hello, World!".getBytes()));
-        client.subscribe("#", (topic, msg) -> System.out.println(topic));
+        client.subscribe("application/#",
+                (topic, msg) -> System.out.println(new String(msg.getPayload())));
 
         try {
             Thread.sleep(1000);
@@ -38,6 +39,6 @@ public class Main {
             Thread.currentThread().interrupt();
         }
 
-        client.disconnect();
+        // client.disconnect();
     }
 }
