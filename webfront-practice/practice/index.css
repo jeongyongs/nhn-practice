@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-color: lightgray;
+}
+
+.container {
+    padding: 10px;
+}
+
+.box {
+    background-color: white;
+    border-radius: 5px;
+    padding: 30px;
+    margin: 0 auto;
+}
+
+.login-form {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    flex-direction: column;
+    width: 500px;
+    min-height: 300px;
+}
+
+.box h1 {
+    color: lightgray;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-form input {
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0 10px;
+    margin-bottom: 10px;
+    height: 30px;
+    border-radius: 100px;
+    border: lightgray 1px solid;
+}
+
+.login-form button {
+    cursor: pointer;
+    height: 30px;
+    border-radius: 100px;
+    border: none;
+    background-color: yellowgreen;
+    color: white;
+    margin-top: 20px;
+}
+
+.login-form button:active {
+    background-color: rgb(120, 161, 38);
+}
+
+.login-form label {
+    margin-left: 10px;
+    color: lightgray;
+}
+
+.cart-form {
+    min-width: 500px;
+    max-width: 1000px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: center;
+    font-weight: normal;
+    background-color: lightgray;
+    padding: 5px 0;
+}
+
+td {
+    box-sizing: border-box;
+    border: 1px solid lightgray;
+    border-right: none;
+    padding: 10px 10px;
+}
+
+td:nth-child(2) {
+    text-align: center;
+}
+
+td:nth-child(3),
+td:nth-child(4),
+td:nth-child(5) {
+    text-align: right;
+}
+
+td:first-child {
+    border-left: none;
+}
+
+tr:last-child {
+    border-top: 3px double lightgray;
+}
+
+tr:last-child td {
+    text-align: right;
+}
+
+.info {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.info * {
+    margin-right: 30px;
+}

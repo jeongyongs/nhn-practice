@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장바구니 조회</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="login-form" class="box login-form">
+            <h1 id="test">로그인</h1>
+            <label for="userId">username</label>
+            <input type="text" name="userId" id="userId">
+            <label for="userPassword">password</label>
+            <input type="password" name="userPassword" id="userPassword">
+            <button id="login" onclick="login();">로그인</button>
+        </div>
+        <div id="cart-form" class="box cart-form">
+            <h1>장바구니</h1>
+            <div class="info">
+                <p id="id">아이디: </p>
+                <p id="name">이름: </p>
+                <p id="cartid">카트아이디: </p>
+            </div>
+            <table id="table">
+                <tr>
+                    <th style="width: 10%;">제품번호</td>
+                    <th style="width: 40%;">제품명</td>
+                    <th style="width: 20%;">가 격</td>
+                    <th style="width: 10%;">수 량</td>
+                    <th style="width: 20%;">합 계</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+
+</html>
