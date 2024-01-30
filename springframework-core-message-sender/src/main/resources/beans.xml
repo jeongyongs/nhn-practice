@@ -9,11 +9,6 @@
     <context:annotation-config/>
     <context:property-placeholder location="sender.properties"/>
 
-    <bean id="smsMessageSender"
-          class="com.nhnacademy.edu.springframework.messagesender.sender.SmsMessageSender">
-        <qualifier type="com.nhnacademy.edu.springframework.messagesender.annotation.SMS"/>
-    </bean>
-
     <bean id="emailMessageSender"
           class="com.nhnacademy.edu.springframework.messagesender.sender.EmailMessageSender">
     </bean>

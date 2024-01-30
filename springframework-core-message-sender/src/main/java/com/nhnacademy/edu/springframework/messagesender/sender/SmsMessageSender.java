@@ -9,10 +9,10 @@ public class SmsMessageSender implements MessageSender {
     }
 
     public void init() {
-        System.out.println("init method called in SmsMessageSender");
+        System.out.println("Init method called in SmsMessageSender");
     }
 
-    public void destroy() {
+    public void close() {
         System.out.println("destroy method called in SmsMessageSender");
     }
 }
