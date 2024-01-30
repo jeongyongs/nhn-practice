@@ -7,6 +7,7 @@
        default-destroy-method="destroy">
 
     <context:annotation-config/>
+    <context:property-placeholder location="sender.properties"/>
 
     <bean id="smsMessageSender"
           class="com.nhnacademy.edu.springframework.messagesender.sender.SmsMessageSender">
