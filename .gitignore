@@ -9,3 +9,5 @@ out/
 *.jar
 .DS_Store
 .idea/
+
+*.properties
